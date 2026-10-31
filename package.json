@@ -1,0 +1,22 @@
+{
+  "name": "elf-prx-inspector",
+  "version": "1.0.0",
+  "description": "Interactive client-side ELF & PlayStation PRX Binary Inspector, Segment Memory Mapper, and Relinker Bounds Auditor.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "elf",
+    "prx",
+    "ps5",
+    "playstation",
+    "orbis",
+    "prospero",
+    "relinker",
+    "binary-inspector",
+    "reverse-engineering"
+  ],
+  "author": "slopgobblercobbler",
+  "license": "MIT"
+}

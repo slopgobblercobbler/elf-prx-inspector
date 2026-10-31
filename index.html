@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELF & PS5 PRX Inspector — Binary Structure, Memory Map & Relinker Auditor</title>
+  <meta name="description" content="Production-grade interactive client-side ELF & PlayStation PRX binary inspector, segment memory mapper, dynamic relocation viewer, and AnyPS5 relinker bounds auditor.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">ELF</div>
+      <div class="brand-text">
+        <h1>ELF & PS5 PRX Inspector</h1>
+        <div class="brand-subtitle">Interactive Binary Structure, Segments & Relinker Auditor</div>
+      </div>
+    </div>
+
+    <div class="header-controls">
+      <div class="control-group">
+        <label for="sample-select">Preset:</label>
+        <select id="sample-select" aria-label="Load Predefined Sample Binary">
+          <option value="SAMPLE_2_PS5_PRX" selected>Sample 2: PlayStation 5 PRX (Sony ET_DYN)</option>
+          <option value="SAMPLE_1_LINUX_X86_64">Sample 1: Linux x86-64 Executable</option>
+          <option value="SAMPLE_3_SHARED_OBJECT">Sample 3: Shared Object with Relocations</option>
+          <option value="SAMPLE_4_CORRUPT_BOUNDS">Sample 4: Relinker Bounds Violation</option>
+        </select>
+      </div>
+
+      <a href="https://github.com/slopgobblercobbler/elf-prx-inspector" target="_blank" rel="noopener noreferrer" class="btn btn-sm">
+        <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Notification Alert Box -->
+    <div id="alert-container" style="display: none;"></div>
+
+    <!-- Dropzone Input -->
+    <section class="input-section">
+      <div id="dropzone" class="dropzone">
+        <div class="dropzone-icon">📥</div>
+        <div class="dropzone-text">Drag & drop any ELF64, ELF32, or Sony PRX binary here, or click to browse</div>
+        <div class="dropzone-hint">Supports System V, Linux, FreeBSD, and Sony Orbis/Prospero PRX. 100% Client-Side.</div>
+        <input type="file" id="file-input" style="display: none;">
+      </div>
+      <div id="file-info-label" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-blue); margin-top: 8px;"></div>
+
+      <div class="preset-chips">
+        <span class="chip" data-sample="SAMPLE_2_PS5_PRX">🎮 PlayStation 5 PRX</span>
+        <span class="chip" data-sample="SAMPLE_1_LINUX_X86_64">🐧 Linux x86-64 Exec</span>
+        <span class="chip" data-sample="SAMPLE_3_SHARED_OBJECT">📦 Shared Object (.so)</span>
+        <span class="chip" data-sample="SAMPLE_4_CORRUPT_BOUNDS">⚠️ Bounds Violation Vector</span>
+      </div>
+    </section>
+
+    <!-- Telemetry Bar -->
+    <section class="telemetry-bar">
+      <div class="stat-card">
+        <div class="stat-label">Binary Format</div>
+        <div id="stats-format" class="stat-value">Detecting...</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Target Architecture</div>
+        <div id="stats-machine" class="stat-value">Unknown</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Segments (PHT)</div>
+        <div id="stats-segments" class="stat-value">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Sections (SHT)</div>
+        <div id="stats-sections" class="stat-value">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Relinker Audit</div>
+        <div id="stats-audit" class="stat-value ok">PASS</div>
+      </div>
+    </section>
+
+    <!-- Visual Virtual Memory Map -->
+    <section class="memory-map-section">
+      <div class="memory-map-title">
+        <span>Segment Memory Map (Virtual Address Layout)</span>
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Hover for addresses & sections</span>
+      </div>
+      <div id="memory-bar" class="memory-bar"></div>
+      <div class="memory-legend">
+        <div class="legend-item"><span class="legend-dot seg-rx"></span> <span>Code (RX)</span></div>
+        <div class="legend-item"><span class="legend-dot seg-rw"></span> <span>Data (RW)</span></div>
+        <div class="legend-item"><span class="legend-dot seg-r"></span> <span>Read-Only (R)</span></div>
+        <div class="legend-item"><span class="legend-dot seg-dynamic"></span> <span>Dynamic</span></div>
+        <div class="legend-item"><span class="legend-dot seg-sce"></span> <span>Sony SCE (PRX)</span></div>
+      </div>
+    </section>
+
+    <!-- View Navigation Tabs -->
+    <nav class="view-nav">
+      <button class="view-tab active" data-tab="tab-header">
+        <span>📑</span> ELF Header
+      </button>
+      <button class="view-tab" data-tab="tab-segments">
+        <span>📊</span> Segments (PHT)
+      </button>
+      <button class="view-tab" data-tab="tab-sections">
+        <span>📁</span> Sections (SHT)
+      </button>
+      <button class="view-tab" data-tab="tab-dynamic">
+        <span>⚙️</span> Dynamic Tags
+      </button>
+      <button class="view-tab" data-tab="tab-relocations">
+        <span>🔗</span> Relocations
+      </button>
+      <button class="view-tab" data-tab="tab-symbols">
+        <span>🏷️</span> Symbols
+      </button>
+      <button class="view-tab" data-tab="tab-auditor">
+        <span>🛡️</span> Relinker Auditor
+      </button>
+      <button class="view-tab" data-tab="tab-hex">
+        <span>🔍</span> Hex Dump
+      </button>
+    </nav>
+
+    <!-- Panel 1: Header -->
+    <section id="tab-header" class="view-panel active">
+      <div id="header-detail"></div>
+    </section>
+
+    <!-- Panel 2: Segments -->
+    <section id="tab-segments" class="view-panel">
+      <div id="segments-table" class="table-wrapper"></div>
+    </section>
+
+    <!-- Panel 3: Sections -->
+    <section id="tab-sections" class="view-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+        <input type="text" id="section-search" placeholder="Search sections..." style="background: var(--bg-secondary); border: 1px solid var(--border-color); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; width: 220px;">
+        <div style="display: flex; gap: 8px;">
+          <button id="btn-export-sec-csv" class="btn btn-sm">Export Sections CSV</button>
+        </div>
+      </div>
+      <div id="sections-table" class="table-wrapper"></div>
+    </section>
+
+    <!-- Panel 4: Dynamic Tags -->
+    <section id="tab-dynamic" class="view-panel">
+      <div id="dynamic-table" class="table-wrapper"></div>
+    </section>
+
+    <!-- Panel 5: Relocations -->
+    <section id="tab-relocations" class="view-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+        <input type="text" id="rel-search" placeholder="Filter relocations..." style="background: var(--bg-secondary); border: 1px solid var(--border-color); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; width: 220px;">
+        <div style="display: flex; gap: 8px;">
+          <button id="btn-export-rel-csv" class="btn btn-sm">Export Relocations CSV</button>
+        </div>
+      </div>
+      <div id="relocations-table" class="table-wrapper"></div>
+    </section>
+
+    <!-- Panel 6: Symbols -->
+    <section id="tab-symbols" class="view-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <input type="text" id="sym-search" placeholder="Filter symbols..." style="background: var(--bg-secondary); border: 1px solid var(--border-color); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; width: 220px;">
+      </div>
+      <div id="symbols-table" class="table-wrapper"></div>
+    </section>
+
+    <!-- Panel 7: Relinker Auditor -->
+    <section id="tab-auditor" class="view-panel">
+      <div id="audit-container"></div>
+    </section>
+
+    <!-- Panel 8: Hex Dump -->
+    <section id="tab-hex" class="view-panel">
+      <div id="hex-container" class="hex-container"></div>
+    </section>
+
+    <!-- Global Export Toolbar -->
+    <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+      <button id="btn-export-ascii" class="btn btn-sm">Export ASCII Report</button>
+      <button id="btn-export-json" class="btn btn-sm btn-primary">Export JSON</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      <strong>ELF & PS5 PRX Inspector</strong> — Production-grade static client-side binary inspector hosted on
+      <a href="https://slopgobblercobbler.github.io/elf-prx-inspector/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
+      Licensed under <a href="https://github.com/slopgobblercobbler/elf-prx-inspector/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT</a>.
+    </p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
