@@ -1,0 +1,16 @@
+{
+  "libkernel": {
+    "sceKernelAllocateDirectMemory": "0x5d9ec8164ba01e12",
+    "sceKernelMapDirectMemory": "0x72a5b287f394c861",
+    "sceKernelReleaseDirectMemory": "0x19a0ce6294a28f11",
+    "scePthreadMutexInit": "0x3ab8f3a09e02c918",
+    "scePthreadMutexLock": "0x4ca18a7719ef9201",
+    "scePthreadMutexUnlock": "0x619bc8f1920ca881",
+    "scePthreadMutexDestroy": "0x289fa6619e083ba4"
+  },
+  "libSceVideoOut": {
+    "sceVideoOutOpen": "0x4890cbe812049182",
+    "sceVideoOutClose": "0x1980cbef18029a10",
+    "sceVideoOutGetResolutionStatus": "0x5891acbe01948ba1"
+  }
+}
