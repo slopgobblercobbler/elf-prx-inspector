@@ -99,3 +99,8 @@ python -m http.server 8000
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+
+## ELF & PRX Dynamic Relocation Bounds
+
+Includes verification for dynamic relocation entries (DT_REL, DT_RELA, DT_RELASZ, DT_RELENT) and NID symbol resolutions matching AnyPS5 conventions.
