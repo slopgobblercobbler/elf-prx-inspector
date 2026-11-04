@@ -1,0 +1,9 @@
+{
+  "VER_NEED_CURRENT": 1,
+  "VER_NEED_NUM": 2,
+  "vn_version_offset": 0,
+  "vn_cnt_offset": 2,
+  "vn_file_offset": 4,
+  "vn_aux_offset": 8,
+  "vn_next_offset": 12
+}
