@@ -1,0 +1,12 @@
+{
+  "AT_NULL": 0,
+  "AT_IGNORE": 1,
+  "AT_EXECFD": 2,
+  "AT_PHDR": 3,
+  "AT_PHENT": 4,
+  "AT_PHNUM": 5,
+  "AT_PAGESZ": 6,
+  "AT_BASE": 7,
+  "AT_FLAGS": 8,
+  "AT_ENTRY": 9
+}
