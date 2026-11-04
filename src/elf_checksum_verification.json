@@ -1,0 +1,8 @@
+{
+  "supported_algorithms": [
+    "crc32",
+    "sha256"
+  ],
+  "sha256_digest_bytes": 32,
+  "crc32_initial_value": 4294967295
+}
