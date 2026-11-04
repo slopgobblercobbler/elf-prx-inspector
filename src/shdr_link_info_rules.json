@@ -1,0 +1,18 @@
+{
+  "SHT_DYNAMIC": {
+    "sh_link": "string_table_section_index",
+    "sh_info": 0
+  },
+  "SHT_HASH": {
+    "sh_link": "symbol_table_section_index",
+    "sh_info": 0
+  },
+  "SHT_REL": {
+    "sh_link": "symbol_table_section_index",
+    "sh_info": "relocated_section_index"
+  },
+  "SHT_RELA": {
+    "sh_link": "symbol_table_section_index",
+    "sh_info": "relocated_section_index"
+  }
+}
