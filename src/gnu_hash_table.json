@@ -1,0 +1,7 @@
+{
+  "nbuckets_offset": 0,
+  "symndx_offset": 4,
+  "maskwords_offset": 8,
+  "shift2_offset": 12,
+  "bloom_size_bytes": 8
+}
