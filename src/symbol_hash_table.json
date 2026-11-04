@@ -1,0 +1,6 @@
+{
+  "nbucket_offset": 0,
+  "nchain_offset": 4,
+  "bucket_element_size": 4,
+  "chain_element_size": 4
+}
