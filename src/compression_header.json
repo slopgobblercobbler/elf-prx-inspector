@@ -1,0 +1,7 @@
+{
+  "ELFCOMPRESS_ZLIB": 1,
+  "ch_type_offset": 0,
+  "ch_size_offset": 8,
+  "ch_addralign_offset": 16,
+  "header_size_bytes": 24
+}
