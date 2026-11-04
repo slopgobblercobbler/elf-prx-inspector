@@ -1,0 +1,5 @@
+{
+  "ELFDATA2LSB": 1,
+  "ELFDATA2MSB": 2,
+  "host_native_byte_order": "little_endian"
+}
