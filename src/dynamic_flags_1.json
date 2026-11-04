@@ -1,0 +1,12 @@
+{
+  "DF_1_NOW": 1,
+  "DF_1_GLOBAL": 2,
+  "DF_1_GROUP": 4,
+  "DF_1_NODELETE": 8,
+  "DF_1_LOADFLTR": 16,
+  "DF_1_INITFIRST": 32,
+  "DF_1_NOOPEN": 64,
+  "DF_1_ORIGIN": 128,
+  "DF_1_DIRECT": 256,
+  "DF_1_PIE": 134217728
+}
