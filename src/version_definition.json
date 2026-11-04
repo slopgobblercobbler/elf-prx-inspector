@@ -1,0 +1,11 @@
+{
+  "VER_DEF_CURRENT": 1,
+  "VER_DEF_NUM": 2,
+  "vd_version_offset": 0,
+  "vd_flags_offset": 2,
+  "vd_ndx_offset": 4,
+  "vd_cnt_offset": 6,
+  "vd_hash_offset": 8,
+  "vd_aux_offset": 12,
+  "vd_next_offset": 16
+}
