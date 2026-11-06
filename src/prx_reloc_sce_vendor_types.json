@@ -1,0 +1,5 @@
+{
+  "R_X86_64_SCE_SPECIAL": "0x000000F0",
+  "R_X86_64_SCE_SUB64": "0x000000F1",
+  "supports_vendor_relocations": true
+}
