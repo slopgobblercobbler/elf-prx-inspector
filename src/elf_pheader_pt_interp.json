@@ -1,0 +1,5 @@
+{
+  "p_type_name": "PT_INTERP",
+  "p_type_val": 3,
+  "description": "Specifies program dynamic linker interpreter pathname"
+}
