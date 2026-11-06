@@ -1,0 +1,6 @@
+{
+  "reloc_name": "R_X86_64_GOT32",
+  "reloc_id": 3,
+  "calc": "G + A",
+  "description": "32-bit signed offset to symbol GOT entry"
+}
