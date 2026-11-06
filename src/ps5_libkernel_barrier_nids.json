@@ -1,0 +1,5 @@
+{
+  "scePthreadBarrierInit": "0x7F26AB1128C3E921",
+  "scePthreadBarrierDestroy": "0x168DA712BC44FA01",
+  "scePthreadBarrierWait": "0x534A7B9210DE49A0"
+}
