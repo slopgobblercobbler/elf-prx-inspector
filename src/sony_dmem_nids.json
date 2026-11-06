@@ -1,0 +1,5 @@
+{
+  "sceKernelAllocateDirectMemory": "0x4C511BFA54AC9250",
+  "sceKernelFreeDirectMemory": "0x37A4EE676450CA93",
+  "sceKernelMapDirectMemory": "0x7856F0238C8229F1"
+}
