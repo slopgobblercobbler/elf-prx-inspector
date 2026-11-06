@@ -1,0 +1,6 @@
+{
+  "reloc_name": "R_X86_64_PC32",
+  "reloc_id": 2,
+  "calc": "S + A - P",
+  "description": "32-bit signed PC-relative branch relocation"
+}
