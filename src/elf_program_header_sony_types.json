@@ -1,0 +1,6 @@
+{
+  "PT_SCE_RELA": "0x60000000",
+  "PT_SCE_DYNLIBDATA": "0x6fffff00",
+  "PT_SCE_PROGFLAG": "0x61000000",
+  "PT_SCE_COMMENT": "0x6fffff01"
+}
