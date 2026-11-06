@@ -1,0 +1,6 @@
+{
+  "stub_size_bytes": 16,
+  "jmp_opcode": "0xFF 0x25",
+  "push_opcode": "0x68",
+  "jmp_plt0_opcode": "0xE9"
+}
