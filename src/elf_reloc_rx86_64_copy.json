@@ -1,0 +1,5 @@
+{
+  "reloc_name": "R_X86_64_COPY",
+  "reloc_id": 5,
+  "description": "Direct memory copy relocation for non-PIC executable variables"
+}
