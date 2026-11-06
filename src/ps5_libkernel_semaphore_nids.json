@@ -1,0 +1,7 @@
+{
+  "sceKernelCreateSema": "0x7FCE1CE6FE0DAE4B",
+  "sceKernelDeleteSema": "0x351F68EF6D5857EA",
+  "sceKernelSignalSema": "0x6EBE88D4D47E31D4",
+  "sceKernelWaitSema": "0x985559C3949980BE",
+  "sceKernelPollSema": "0x3BEB772DE2F49780"
+}
