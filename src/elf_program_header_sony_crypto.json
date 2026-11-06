@@ -1,0 +1,4 @@
+{
+  "PT_SCE_SEGSYM": "0x60000001",
+  "PT_SCE_DYNAMIC": "0x60000002"
+}
