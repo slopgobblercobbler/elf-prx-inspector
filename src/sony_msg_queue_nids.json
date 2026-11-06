@@ -1,0 +1,5 @@
+{
+  "sceKernelCreateMsgPipe": "0x321287FE6A7B12C4",
+  "sceKernelDeleteMsgPipe": "0x9812A9FC3312B4E1",
+  "sceKernelSendMsgPipe": "0x44B1278C123490AF"
+}
