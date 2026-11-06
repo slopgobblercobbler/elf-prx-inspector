@@ -1,0 +1,6 @@
+{
+  "reloc_name": "R_X86_64_GLOB_DAT",
+  "reloc_id": 6,
+  "calc": "S",
+  "description": "Direct symbol resolution in global offset table"
+}
