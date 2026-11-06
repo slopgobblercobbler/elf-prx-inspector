@@ -1,0 +1,6 @@
+{
+  "reloc_name": "R_X86_64_PLT32",
+  "reloc_id": 4,
+  "calc": "L + A - P",
+  "description": "32-bit signed PC-relative offset to PLT entry"
+}
