@@ -1,0 +1,6 @@
+{
+  "reloc_name": "R_X86_64_JUMP_SLOT",
+  "reloc_id": 7,
+  "calc": "S",
+  "description": "PLT entry target address dynamic resolution"
+}
