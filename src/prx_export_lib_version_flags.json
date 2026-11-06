@@ -1,0 +1,6 @@
+{
+  "default_sys_version": "0x01000000",
+  "is_weak_export_bit": 1,
+  "is_auto_export_bit": 2,
+  "max_library_name_len": 38
+}
