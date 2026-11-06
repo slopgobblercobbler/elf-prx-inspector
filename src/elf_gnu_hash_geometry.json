@@ -1,0 +1,5 @@
+{
+  "bloom_shift_bits": 6,
+  "elf64_bloom_word_bytes": 8,
+  "hash_seed": 5381
+}
