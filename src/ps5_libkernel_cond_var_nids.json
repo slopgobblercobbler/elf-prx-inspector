@@ -1,0 +1,7 @@
+{
+  "scePthreadCondInit": "0xE3DC466981881766",
+  "scePthreadCondDestroy": "0x39E927C6EB481546",
+  "scePthreadCondWait": "0x7890AA7BA4B53208",
+  "scePthreadCondSignal": "0x3FEF8FECE6F98F90",
+  "scePthreadCondBroadcast": "0x2C4B78EE91238AF1"
+}
