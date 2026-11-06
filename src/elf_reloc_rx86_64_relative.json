@@ -1,0 +1,6 @@
+{
+  "reloc_name": "R_X86_64_RELATIVE",
+  "reloc_id": 8,
+  "calc": "B + A",
+  "description": "Adjusts address by module load base delta"
+}
