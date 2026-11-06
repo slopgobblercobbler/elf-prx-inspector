@@ -1,0 +1,6 @@
+{
+  "max_tls_align": 4096,
+  "tbss_zero_fill": true,
+  "thread_pointer_offset": -8,
+  "dynamic_tls_model_supported": true
+}
