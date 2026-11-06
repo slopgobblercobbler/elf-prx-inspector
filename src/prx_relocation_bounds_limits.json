@@ -1,0 +1,5 @@
+{
+  "max_rela_entries": 1048576,
+  "max_symbol_index": 524288,
+  "rela_entry_size": 24
+}
