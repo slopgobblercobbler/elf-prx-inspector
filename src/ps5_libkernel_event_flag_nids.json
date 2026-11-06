@@ -1,0 +1,7 @@
+{
+  "sceKernelCreateEventFlag": "0x2C4B1397EA21AA59",
+  "sceKernelSetEventFlag": "0x77063FA64C937A08",
+  "sceKernelClearEventFlag": "0x39384E347A4605DE",
+  "sceKernelWaitEventFlag": "0x356A3A2C854DC4C0",
+  "sceKernelPollEventFlag": "0x8E8F50B3D7EF2A01"
+}
