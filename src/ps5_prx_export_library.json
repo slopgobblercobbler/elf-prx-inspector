@@ -1,0 +1,6 @@
+{
+  "library_name_max_len": 38,
+  "version_major_size_bits": 8,
+  "version_minor_size_bits": 8,
+  "max_exported_symbols": 65536
+}
