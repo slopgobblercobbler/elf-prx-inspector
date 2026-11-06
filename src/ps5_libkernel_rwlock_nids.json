@@ -1,0 +1,7 @@
+{
+  "scePthreadRwlockInit": "0x34C81EF26D8180A2",
+  "scePthreadRwlockDestroy": "0x40DA336B8281AF10",
+  "scePthreadRwlockRdlock": "0x981C5EE6410AB780",
+  "scePthreadRwlockWrlock": "0x32AE1B3814C108FA",
+  "scePthreadRwlockUnlock": "0x17E468A3D811BE01"
+}
