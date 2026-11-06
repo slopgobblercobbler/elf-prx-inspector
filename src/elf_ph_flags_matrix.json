@@ -1,0 +1,7 @@
+{
+  "PF_X": 1,
+  "PF_W": 2,
+  "PF_R": 4,
+  "PF_MASKOS": "0x0FF00000",
+  "PF_MASKPROC": "0xF0000000"
+}
