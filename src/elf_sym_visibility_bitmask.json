@@ -1,0 +1,5 @@
+{
+  "ELF64_ST_VISIBILITY_MASK": "0x03",
+  "shift_bits": 0,
+  "applies_to_st_other": true
+}
