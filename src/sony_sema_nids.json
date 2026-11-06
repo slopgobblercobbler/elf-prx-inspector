@@ -1,0 +1,5 @@
+{
+  "sceKernelCreateSema": "0x6E215421A93410FE",
+  "sceKernelDeleteSema": "0x12A984E290BC33A1",
+  "sceKernelWaitSema": "0x44C198BA239851D2"
+}
