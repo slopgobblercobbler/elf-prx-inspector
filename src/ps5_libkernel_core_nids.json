@@ -1,0 +1,6 @@
+{
+  "sceKernelGetProcessTime": "0x2AC2533B5885DE26",
+  "sceKernelAllocateDirectMemory": "0x53B0B9D66F4A8025",
+  "sceKernelMapDirectMemory": "0x4466986F90EBB44D",
+  "sceKernelReleaseDirectMemory": "0x0C7A633F49A1F3E9"
+}
