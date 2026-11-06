@@ -1,0 +1,6 @@
+{
+  "library_id_bits": 16,
+  "module_version_bits": 16,
+  "max_nid_count": 4096,
+  "entry_size_bytes": 32
+}
