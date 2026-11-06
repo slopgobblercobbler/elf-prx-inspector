@@ -1,0 +1,6 @@
+{
+  "param_size": 28,
+  "version": 1,
+  "sdk_version": "0x01500000",
+  "cpu_affinity_mask": "0x0000003F"
+}
