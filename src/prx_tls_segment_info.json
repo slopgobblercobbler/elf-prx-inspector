@@ -1,0 +1,6 @@
+{
+  "tls_segment_type": "PT_TLS",
+  "tls_init_size_alignment": 16,
+  "tp_offset_x86_64": 0,
+  "fs_base_relative": true
+}
