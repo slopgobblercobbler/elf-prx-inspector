@@ -1,0 +1,5 @@
+{
+  "bind_shift": 4,
+  "type_mask": "0x0F",
+  "supported_elf_class": 2
+}
