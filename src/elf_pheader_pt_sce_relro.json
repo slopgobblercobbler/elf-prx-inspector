@@ -1,0 +1,6 @@
+{
+  "p_type_name": "PT_SCE_RELRO",
+  "p_type_val": 1627389968,
+  "flags": "PF_R",
+  "description": "Read-only after relocations segment"
+}
