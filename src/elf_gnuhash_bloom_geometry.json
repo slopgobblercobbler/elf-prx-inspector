@@ -1,0 +1,5 @@
+{
+  "bloom_shift_default": 6,
+  "maskwords_min": 1,
+  "maskwords_power_of_two": true
+}
