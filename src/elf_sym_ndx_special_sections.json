@@ -1,0 +1,7 @@
+{
+  "SHN_UNDEF": 0,
+  "SHN_LORESERVE": "0xFF00",
+  "SHN_ABS": "0xFFF1",
+  "SHN_COMMON": "0xFFF2",
+  "SHN_HIRESERVE": "0xFFFF"
+}
