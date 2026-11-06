@@ -1,0 +1,5 @@
+{
+  "sceKernelSleep": "0x56EAE4A3E92B1980",
+  "sceKernelUsleep": "0x7890AA7BA4B53208",
+  "sceKernelNanosleep": "0x2AC2533B5885DE26"
+}
