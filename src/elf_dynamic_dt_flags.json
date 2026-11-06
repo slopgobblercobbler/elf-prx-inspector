@@ -1,0 +1,8 @@
+{
+  "DT_FLAGS": 30,
+  "DF_ORIGIN": 1,
+  "DF_SYMBOLIC": 2,
+  "DF_TEXTREL": 4,
+  "DF_BIND_NOW": 8,
+  "description": "ELF dynamic table entry flags bitmask"
+}
