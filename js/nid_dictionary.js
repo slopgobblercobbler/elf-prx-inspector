@@ -3,7 +3,7 @@
  * Maps 64-bit NID hashes to canonical C API symbol names across core userland libraries.
  */
 
-const KNOWN_PRX_NIDS = {
+export const KNOWN_PRX_NIDS = {
   // libkernel
   "0x0B819662C92C0F27": "sceKernelAllocateDirectMemory",
   "0x2B99E758DAA8785E": "sceKernelReleaseDirectMemory",
@@ -29,7 +29,7 @@ const KNOWN_PRX_NIDS = {
   "0x550FE620EF3E8941": "sceVideoOutConfigureOutput"
 };
 
-function resolveNid(nidHex) {
+export function resolveNid(nidHex) {
   const normalized = nidHex.toLowerCase();
   for (const [hash, name] of Object.entries(KNOWN_PRX_NIDS)) {
     if (hash.toLowerCase() === normalized) {
@@ -37,8 +37,4 @@ function resolveNid(nidHex) {
     }
   }
   return null;
-}
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { KNOWN_PRX_NIDS, resolveNid };
 }
